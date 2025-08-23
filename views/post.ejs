@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= post.title %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1><%= post.title %></h1>
+  <p><%= post.content %></p>
+  <small>Posted on <%= post.createdAt.toLocaleString() %></small>
+  <br><br>
+  <a href="/posts/new">Create another post</a>
+</body>
+</html>
