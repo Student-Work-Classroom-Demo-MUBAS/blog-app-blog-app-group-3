@@ -1,0 +1,157 @@
+/* ================================
+   Base Layout and Typography
+================================= */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ================================
+   Headings and Text
+================================= */
+h1, h2, h3 {
+  color: #007acc; /* Primary blue */
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* ================================
+   Featured Post Styling
+================================= */
+.featured-post {
+  background-color: #eef6ff; /* Light blue background */
+  padding: 1rem;
+  border-left: 4px solid #007acc;
+  margin-bottom: 2rem;
+  border-radius: 6px;
+}
+
+/* ================================
+   Post Grid Layout
+================================= */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ================================
+   Individual Post Card
+================================= */
+.post-item {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Full post view */
+.full-post {
+  background-color: #fefefe;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* ================================
+   Buttons
+================================= */
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #007acc;
+  color: white;
+}
+
+.btn-outline {
+  border: 1px solid #007acc;
+  color: #007acc;
+  background-color: transparent;
+}
+
+.btn-secondary {
+  background-color: #005f99;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #cc0000;
+  color: white;
+  border: none;
+}
+
+.btn-link {
+  color: #007acc;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* ================================
+   Alerts and Messages
+================================= */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.alert-danger {
+  background-color: #ffe5e5;
+  color: #cc0000;
+}
+
+.alert-success {
+  background-color: #e6f9e6;
+  color: #2d862d;
+}
+
+/* ================================
+   Action Buttons Container
+================================= */
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ================================
+   Responsive Design
+================================= */
+@media (max-width: 600px) {
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

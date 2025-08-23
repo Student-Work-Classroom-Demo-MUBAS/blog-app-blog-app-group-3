@@ -1,24 +1,66 @@
+<!-- Victoria-Post-Viewing -->
+<!-- Include the shared header partial (navigation, styles, etc.) -->
 <%- include('partials/header') %>
 
 <main class="container">
-  <h1>All Posts</h1>
+  <!-- Header section with page title and optional "Create Post" button -->
+  <div class="header-bar">
+    <h1>All Posts</h1>
+    <a href="/posts/new" class="btn btn-create">+ Create Post</a> <!-- You can remove this if you're not handling post creation -->
+  </div>
 
+  <!-- Conditional: If there are no posts, show an empty state message -->
   <% if (posts.length === 0) { %>
-    <p>No posts yet. <a href="/posts/new" class="btn-link">Create one now</a>.</p>
+    <p class="empty-state">No posts yet. Be the first to share your thoughts!</p>
+
   <% } else { %>
-    <ul class="post-list">
-      <% posts.slice().reverse().forEach(post => { %>
-        <li class="post-item">
+    <!-- If posts exist, display the most recent one as a featured post -->
+
+    <% const featured = posts[posts.length - 1]; %> <!-- Select the last post as the featured one -->
+    <section class="featured-post">
+      <h2>🌟 Featured Post</h2>
+      <article class="post-item">
+        <!-- Post title with link to full post -->
+        <h3><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h3>
+
+        <!-- Display formatted post date -->
+        <small class="post-meta">Posted on <%= new Date(featured.createdAt).toLocaleDateString() %></small>
+
+        <!-- Show a preview of the post content (first 200 characters) -->
+        <p>
+          <%= featured.content.length > 200
+            ? featured.content.substring(0, 200) + '…'
+            : featured.content %>
+        </p>
+
+        <!-- Button to read the full post -->
+        <a href="/posts/<%= featured.id %>" class="btn btn-primary">Read More</a>
+      </article>
+    </section>
+
+    <!-- Display all other posts in a responsive grid layout -->
+    <section class="post-grid">
+      <% posts.slice(0, -1).reverse().forEach(post => { %> <!-- Exclude featured post and reverse order -->
+        <article class="post-item">
+          <!-- Post title with link -->
           <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+
+          <!-- Post date -->
+          <small class="post-meta">Posted on <%= new Date(post.createdAt).toLocaleDateString() %></small>
+
+          <!-- Content preview (first 150 characters) -->
           <p>
             <%= post.content.length > 150
               ? post.content.substring(0, 150) + '…'
               : post.content %>
           </p>
-          <a href="/posts/<%= post.id %>" class="btn btn-primary">Read More</a>
-        </li>
+
+          <!-- Button to read full post -->
+          <a href="/posts/<%= post.id %>" class="btn btn-outline">Read More</a>
+        </article>
       <% }) %>
-    </ul>
+    </section>
+
   <% } %>
 </main>
 
