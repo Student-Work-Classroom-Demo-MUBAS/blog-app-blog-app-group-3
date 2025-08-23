@@ -1,4 +1,52 @@
-/* Form styling */
+/* ====== Header Styling ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff; /* pure white */
+  border-bottom: 1px solid #ccc;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: center;
+  flex: 1;
+}
+
+/* ====== Navigation Styling ====== */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ====== Page Title Styling ====== */
+.page-title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem;
+  font-weight: bold;
+}
+
+/* ====== Form Styling ====== */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -18,7 +66,7 @@ textarea {
   font-size: 1rem;
 }
 
-/* Alert styling */
+/* ====== Alert Styling ====== */
 .alert {
   padding: 1rem;
   margin-bottom: 1rem;
@@ -32,16 +80,17 @@ textarea {
   border-color: #a00;
 }
 
-/* Center the form and limit width */
+/* ====== Form Container Styling ====== */
 .form-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #f9f9f9; /* : adds a soft background */
-  border-radius: 8px;         /*: rounded corners */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* optional: subtle shadow */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* ====== Button Styling ====== */
 button {
   padding: 0.75rem 1.5rem;
   background-color: #007bff;
