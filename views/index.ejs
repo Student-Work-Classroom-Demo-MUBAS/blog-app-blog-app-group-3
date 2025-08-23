@@ -6,7 +6,6 @@
   <!-- Header section with page title and optional "Create Post" button -->
   <div class="header-bar">
     <h1>All Posts</h1>
-    <a href="/posts/new" class="btn btn-create">+ Create Post</a> <!-- You can remove this if you're not handling post creation -->
   </div>
 
   <!-- Conditional: If there are no posts, show an empty state message -->
@@ -18,7 +17,7 @@
 
     <% const featured = posts[posts.length - 1]; %> <!-- Select the last post as the featured one -->
     <section class="featured-post">
-      <h2>🌟 Featured Post</h2>
+      <h2>Featured Post</h2>
       <article class="post-item">
         <!-- Post title with link to full post -->
         <h3><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h3>
