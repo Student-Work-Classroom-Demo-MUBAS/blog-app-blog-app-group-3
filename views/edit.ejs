@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <h1>Edit Post</h1>
+
+  <% if (error) { %>
+    <div class="alert"><%= error %></div>
+  <% } %>
+
+  <form action="/posts/<%= post.id %>/edit" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        value="<%= post.title %>"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea
+        id="content"
+        name="content"
+        rows="6"
+        required
+      ><%= post.content %></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">Save Changes</button>
+      <a href="/posts/<%= post.id %>" class="btn-secondary">Cancel</a>
+    </div>
+
+    <button id="preview-toggle">Hide Preview</button>
+    <div id="post-preview"><%= post.content %></div>
+    <div class="alert">Post saved successfully!</div>
+  </form>
+</main>
+
+<%- include('partials/footer') %>
