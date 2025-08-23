@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <footer>
-    <p>&copy; 2025 Blog App</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; <%= new Date().getFullYear() %> <strong>My Blog</strong>. All rights reserved.</p>
+      <nav class="social-links" aria-label="Social media">
+        <ul>
+          <li><a href="#" title="Follow us on Twitter">Twitter</a></li>
+          <li><a href="#" title="Follow us on Facebook">Facebook</a></li>
+          <li><a href="#" title="Follow us on Instagram">Instagram</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>
