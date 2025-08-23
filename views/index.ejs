@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <h1>All Posts</h1>
+
+  <% if (posts.length === 0) { %>
+    <p>No posts yet. <a href="/posts/new" class="btn-link">Create one now</a>.</p>
+  <% } else { %>
+    <ul class="post-list">
+      <% posts.slice().reverse().forEach(post => { %>
+        <li class="post-item">
+          <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+          <p>
+            <%= post.content.length > 150
+              ? post.content.substring(0, 150) + '…'
+              : post.content %>
+          </p>
+          <a href="/posts/<%= post.id %>" class="btn btn-primary">Read More</a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</main>
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>
