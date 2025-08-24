@@ -1,6 +1,10 @@
 <!-- Victoria-Post-Viewing -->
 <!-- Include the shared header partial (navigation, styles, etc.) -->
 <%- include('partials/header') %>
+<% if (successMessage) { %>
+  <div id="popup-message" class="popup-success"><%= successMessage %></div>
+<% } %>
+
 
 <main class="container">
   <!-- Header section with page title and optional "Create Post" button -->
