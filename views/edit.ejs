@@ -1,12 +1,13 @@
 <%- include('partials/header') %>
 
-<h1>Edit Post</h1>
+<h1 class="page-title">Edit Post</h1>
 <% if (errorMessage) { %>
-  <div class="alert alert-danger"><%= errorMessage %></div>
+  <div class="alert-error"><%= errorMessage %></div>
 <% } %>
 
 <% if (successMessage) { %> 
-  <div class="alert alert-success"><%= successMessage %></div> <% } %>
+  <div class="alert alert-success"><%= successMessage %></div> 
+  <% } %>
 
 <form action="/posts/<%= post.id %>/edit" method="POST">
   <div class="form-group">
@@ -17,10 +18,11 @@
     <label>Content</label>
     <textarea name="content" required class="form-control"><%= post.content %></textarea>
   </div>
-
-  <button type="submit" class="btn btn-primary">Update</button>
-  <a href="/posts/<%= post.id %>" class="btn btn-secondary">Cancel</a>
-
+  
+  <div class="form-actions">
+    <button type="submit" class="btn-update">Save</button>
+    <a href="/posts/<%= post.id %>" class="btn btn-secondary">Cancel</a>
+  </div>
 </form>
 
 <%- include('partials/footer') %>

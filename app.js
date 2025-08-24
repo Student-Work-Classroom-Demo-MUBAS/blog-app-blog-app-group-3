@@ -7,11 +7,17 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const session = require('express-session');
 
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'yourSecretKey',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // In-Memory Data Store
 let posts = [];
@@ -95,12 +101,11 @@ app.post('/posts/:id/edit', (req, res) => {
   post.title = title;
   post.content = content;
 
-  res.render('edit', {
-    post,
-    successMessage: 'Post updated successfully!',
-    errorMessage: null
-  });
+ req.session.successMessage = 'Post updated successfully!';
+ res.redirect(`/posts/${post.id}`);
+
 });
+
 
 // Route to delete a post
 app.post('/posts/:id/delete', (req, res) => {
