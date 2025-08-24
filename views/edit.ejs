@@ -1,26 +1,62 @@
-<%- include('partials/header') %>
+<%- include('partials/header') %> 
+<!-- Includes shared header partial for consistent layout and navigation -->
 
-<h1 class="edit-page-title">Edit Post</h1>
+<div class="edit-wrapper">
+  <!-- Main wrapper with centered layout and gradient background -->
 
-<% if (errorMessage) { %>
-  <div class="edit-alert-error"><%= errorMessage %></div>
-<% } %>
+  <h1 class="edit-page-title">✏️ Edit Post</h1>
+  <!-- Page title styled for clarity and visual hierarchy -->
 
-<form action="/posts/<%= post.id %>/edit" method="POST" class="edit-form">
-  <div class="edit-form-group">
-    <label for="edit-title">Title</label>
-    <input type="text" id="edit-title" name="title" value="<%= post.title %>" required class="edit-input-field">
-  </div>
+  <form action="/posts/<%= post.id %>/edit" method="POST" class="edit-form">
+    <!-- Form submits updated post data via POST method to the edit route -->
 
-  <div class="edit-form-group">
-    <label for="edit-content">Content</label>
-    <textarea id="edit-content" name="content" required class="edit-textarea-field"><%= post.content %></textarea>
-  </div>
-  
-  <div class="edit-form-actions">
-    <button type="submit" class="edit-btn-update">Save</button>
-    <a href="/posts/<%= post.id %>" class="edit-btn-cancel">Cancel</a>
-  </div>
-</form>
+    <div class="edit-image-preview">
+      <!-- Section for image preview and upload -->
 
-<%- include('partials/footer') %>
+      <img src="/images/sample.jpg" class="edit-image" alt="Preview" id="imagePreview">
+      <!-- Displays current image or placeholder preview -->
+
+      <input type="file" id="imageInput" accept="image/*" style="display: none;">
+      <!-- Hidden file input triggered by custom button -->
+
+      <button type="button" class="edit-image-btn" onclick="triggerFileInput()">Choose Image</button>
+      <!-- Button triggers file picker via JS function for better UX -->
+    </div>
+
+    <div class="edit-form-group">
+      <!-- Title input field group -->
+
+      <label for="edit-title">Title</label>
+      <!-- Label improves accessibility and form clarity -->
+
+      <input type="text" id="edit-title" name="title" value="<%= post.title %>" required class="edit-input-field" placeholder="Enter title...">
+      <!-- Pre-fills title from existing post data for editing -->
+    </div>
+
+    <div class="edit-form-group">
+      <!-- Content textarea field group -->
+
+      <label for="edit-content">Content</label>
+      <!-- Label for content field -->
+
+      <textarea id="edit-content" name="content" required class="edit-textarea-field" placeholder="Write your content here..."><%= post.content %></textarea>
+      <!-- Pre-fills content from existing post data -->
+    </div>
+
+    <div class="edit-form-actions">
+      <!-- Action buttons for form submission and cancellation -->
+
+      <button type="submit" class="edit-btn-update">Save</button>
+      <!-- Submits updated post data -->
+
+      <a href="/posts/<%= post.id %>" class="edit-btn-cancel">Cancel</a>
+      <!-- Navigates back to post view without saving changes -->
+    </div>
+  </form>
+</div>
+
+<script src="/js/script.js"></script>
+<!-- Links external JS file for image preview and file picker logic -->
+
+<%- include('partials/footer') %> 
+<!-- Includes shared footer partial for consistent layout -->
