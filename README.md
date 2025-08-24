@@ -21,12 +21,6 @@ A full-stack, in-memory blog app built with Node.js, Express.js, and EJS. Create
 
 ---
 
-## Demo
-
-![Homepage Screenshot](./public/images/demo-home.png)  
-![Single Post Screenshot](./public/images/demo-post.png)  
-
-Access the live demo (if deployed): **https://yourapp.example.com**
 
 ---
 
@@ -92,7 +86,8 @@ blog-app/
     ├── create.ejs       # New post form
     ├── edit.ejs         # Edit post form
     └── post.ejs         # Single post view
-Environment Variables
+
+##Environment Variables
 This app uses the following optional variables (with defaults shown):
 
 env
