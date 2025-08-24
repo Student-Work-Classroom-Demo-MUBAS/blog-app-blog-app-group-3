@@ -3,6 +3,14 @@
 <%- include('partials/header') %>
 
 <main class="container">
+
+  <!-- Success message after deletion -->
+  <% if (msg) { %>
+    <div class="alert alert-success">
+      <%= msg %>
+    </div>
+  <% } %>
+  
   <!-- Page header -->
   <div class="header-bar">
     <h1>All Posts</h1>

@@ -5,9 +5,12 @@
   <% if (error) { %>
     <div class="alert alert-danger"><%= error %></div>
   <% } else { %>
-    <!-- Optional message -->
+
+    <!-- Success or other message -->
     <% if (msg) { %>
-      <div class="alert alert-<%= msg.type %>"><%= msg.text %></div>
+      <div class="alert alert-success">
+        <%= msg %>
+      </div>
     <% } %>
 
     <!-- Full post content -->
