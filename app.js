@@ -7,26 +7,35 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const session = require('express-session');
 
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'yourSecretKey',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // In-Memory Data Store
 let posts = [];
 let nextId = 1;
 
+// Homepage Route — shows all posts and success message
+app.get('/', (req, res) => {
+  const sorted = [...posts].sort((a, b) => b.id - a.id);
+  const msg = getMessage(req);
+  const successMessage = req.session.successMessage || null;
+  req.session.successMessage = null;
+  res.render('index', { posts: sorted, msg, successMessage });
+});
+
 // Helper Function
 function getMessage(req) {
   return req.query.msg || null;
 }
-
-// Homepage Route — shows all posts
-app.get('/', (req, res) => {
-  const sorted = [...posts].sort((a, b) => b.id - a.id);
-  res.render('index', { posts: sorted, msg: getMessage(req) });
-});
 
 // Route to render post creation form
 app.get('/posts/new', (req, res) => {
@@ -58,14 +67,16 @@ app.post('/posts', (req, res) => {
 app.get('/posts/:id', (req, res) => {
   const post = posts.find(p => p.id === +req.params.id);
   if (!post) {
-    return res.status(404).render('post', { post: null, error: 'Post not found.', msg: null });
+    return res.status(404).render('post', { post: null, error: 'Post not found.', msg: null, successMessage: null });
   }
-  res.render('post', { post, msg: getMessage(req), error: null });
+
+  res.render('post', { post, msg: getMessage(req), error: null, successMessage: null });
 });
 
-// Route to render edit form with feedback support
+// Route to render edit form
 app.get('/posts/:id/edit', (req, res) => {
-  const post = posts.find(p => p.id === +req.params.id);
+  const id = parseInt(req.params.id);
+  const post = posts.find(p => p.id === id);
   if (!post) {
     return res.status(404).render('error', { message: 'Post not found' });
   }
@@ -76,7 +87,7 @@ app.get('/posts/:id/edit', (req, res) => {
   });
 });
 
-// Route to handle post update with validation and feedback
+// Route to handle post update and redirect to homepage with success message
 app.post('/posts/:id/edit', (req, res) => {
   const post = posts.find(p => p.id === +req.params.id);
   if (!post) {
@@ -95,11 +106,8 @@ app.post('/posts/:id/edit', (req, res) => {
   post.title = title;
   post.content = content;
 
-  res.render('edit', {
-    post,
-    successMessage: 'Post updated successfully!',
-    errorMessage: null
-  });
+  req.session.successMessage = 'Post updated successfully!';
+  res.redirect('/');
 });
 
 // Route to delete a post
