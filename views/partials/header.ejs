@@ -1,20 +1,29 @@
 <!-- Link to external stylesheet -->
 <link rel="stylesheet" href="/css/style.css">
+
 <header class="hero-header">
-  <div class="hero-overlay"></div>
-  <div class="hero-container">
-    <div class="hero-left">
-      <h1>Welcome to Our Blog App</h1>
-      <p class="tagline">Write freely. Read deeply. Connect meaningfully.</p>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/posts/new">Create Post</a></li>
-        </ul>
-      </nav>
+
+  <!-- Sticky transparent navbar -->
+  <nav class="hero-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-brand"> Group Three Blog App</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/posts/new">Create Post</a></li>
+      </ul>
     </div>
-    <div class="hero-right">
-      <img src="/images/blog-hero.png" alt="Creative workspace">
-    </div>
+  </nav>
+
+  <!-- Hero intro text -->
+  <div class="hero-content">
+    <h1 class="hero-title">Share Your Thoughts</h1>
+    <p class="hero-subtitle">
+      Where your ideas find their voice. Write boldly, Read deeply and Connect.
+    </p>
   </div>
+
+  <!-- Decorative overlay shapes -->
+  <div class="hero-deco hero-deco--circle"></div>
+  <div class="hero-deco hero-deco--triangle"></div>
 </header>
