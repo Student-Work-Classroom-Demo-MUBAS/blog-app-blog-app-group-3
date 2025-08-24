@@ -157,66 +157,103 @@ h1, h2, h3 {
 }
 
 /* Edit route */
+/* General page layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+/* Page title */
 .page-title {
-  font-size: 28px;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 2rem;
   color: #333;
-  margin-bottom: 20px;
 }
 
+/* Alert messages */
 .alert-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  background-color: #f44336;
+  color: white;
+  padding: 12px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 5px;
+  text-align: center;
 }
 
-.edit-form {
+/* Form layout */
+form {
   max-width: 600px;
   margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* Form groups */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.input-field,
-.textarea-field {
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-control {
   width: 100%;
   padding: 10px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  resize: vertical;
 }
 
+/* Action buttons */
 .form-actions {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .btn-update {
-  background-color: crimson;
+  background-color: #007bff;
   color: white;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-.btn-cancel {
-  background-color: #ccc;
-  color: #333;
-  padding: 8px 16px;
+.btn-update:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
   text-decoration: none;
   border-radius: 4px;
+  font-weight: bold;
 }
 
-
- 
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
