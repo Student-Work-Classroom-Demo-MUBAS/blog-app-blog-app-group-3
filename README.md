@@ -86,6 +86,8 @@ blog-app/
     ├── create.ejs       # New post form
     ├── edit.ejs         # Edit post form
     └── post.ejs         # Single post view
+
+
 Environment Variables
 This app uses the following optional variables (with defaults shown):
 
