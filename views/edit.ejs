@@ -6,10 +6,6 @@
   <div class="edit-alert-error"><%= errorMessage %></div>
 <% } %>
 
-<% if (successMessage) { %> 
-  <div class="edit-alert-success"><%= successMessage %></div> 
-<% } %>
-
 <form action="/posts/<%= post.id %>/edit" method="POST" class="edit-form">
   <div class="edit-form-group">
     <label for="edit-title">Title</label>

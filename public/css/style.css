@@ -549,3 +549,114 @@ textarea {
   }
 }
 
+/* POST-EDITING PART */
+/* ================================
+   Edit Post Page Scoped Styles (.edit-)
+================================= */
+
+.edit-page-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #005f99;
+  margin: 2rem 0 1rem;
+  font-weight: bold;
+}
+
+.edit-alert-error {
+  background-color: #f44336;
+  color: white;
+  padding: 12px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.edit-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid #007acc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.edit-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.edit-form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.edit-input-field,
+.edit-textarea-field {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #f9f9f9;
+}
+
+.edit-form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.edit-btn-update {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn-update:hover {
+  background-color: #0056b3;
+}
+
+.edit-btn-cancel {
+  background-color: #6c757d;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.edit-btn-cancel:hover {
+  background-color: #5a6268;
+}
+
+/* ================================
+   Popup Success Message (index.ejs)
+================================= */
+.popup-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem 1.5rem;
+  margin: 2rem auto;
+  width: fit-content;
+  max-width: 90%;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #c3e6cb;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}

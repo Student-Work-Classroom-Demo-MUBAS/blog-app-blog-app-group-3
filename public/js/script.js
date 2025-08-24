@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (popup) {
     setTimeout(() => {
       popup.style.display = 'none';
-    }, 10000);
+    }, 4000);
   }
 });
