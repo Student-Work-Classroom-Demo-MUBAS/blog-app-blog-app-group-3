@@ -63,13 +63,43 @@ app.get('/posts/:id', (req, res) => {
   res.render('post', { post, msg: getMessage(req), error: null });
 });
 
-// Route to edit a post (optional enhancement)
+// Route to render edit form with feedback support
 app.get('/posts/:id/edit', (req, res) => {
   const post = posts.find(p => p.id === +req.params.id);
   if (!post) {
-    return res.status(404).render('edit', { post: null, error: 'Post not found.' });
+    return res.status(404).render('error', { message: 'Post not found' });
   }
-  res.render('edit', { post, error: null });
+  res.render('edit', {
+    post,
+    successMessage: req.query.success || null,
+    errorMessage: req.query.error || null
+  });
+});
+
+// Route to handle post update with validation and feedback
+app.post('/posts/:id/edit', (req, res) => {
+  const post = posts.find(p => p.id === +req.params.id);
+  if (!post) {
+    return res.status(404).render('error', { message: 'Post not found' });
+  }
+
+  const { title, content } = req.body;
+  if (!title.trim() || !content.trim()) {
+    return res.render('edit', {
+      post,
+      errorMessage: 'Both fields are required.',
+      successMessage: null
+    });
+  }
+
+  post.title = title;
+  post.content = content;
+
+  res.render('edit', {
+    post,
+    successMessage: 'Post updated successfully!',
+    errorMessage: null
+  });
 });
 
 // Route to delete a post
