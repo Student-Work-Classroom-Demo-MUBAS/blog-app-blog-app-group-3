@@ -37,6 +37,18 @@ function getMessage(req) {
   return req.query.msg || null;
 }
 
+// Homepage Route — shows all posts
+app.get('/', (req, res) => {
+  const sorted = [...posts].sort((a, b) => b.id - a.id);
+  res.render('index', { posts: sorted, msg: getMessage(req) });
+});
+
+// Route to list all posts (same as home )
+app.get('/posts', (req, res) => {
+  const sorted = [...posts].sort((a, b) => b.id - a.id);
+  res.render('index', { posts: sorted, msg: getMessage(req) });
+});
+
 // Route to render post creation form
 app.get('/posts/new', (req, res) => {
   res.render('create', { error: null });
@@ -110,12 +122,32 @@ app.post('/posts/:id/edit', (req, res) => {
   res.redirect('/');
 });
 
+
 // Route to delete a post
 app.post('/posts/:id/delete', (req, res) => {
   const id = +req.params.id;
-  posts = posts.filter(p => p.id !== id);
-  res.redirect('/?msg=Post+deleted');
+
+  // find index of the post
+  const index = posts.findIndex(p => p.id === id);
+
+  // Error handling for non-existent posts
+  if (index === -1) {
+    return res.status(404).send(`
+      <main style="text-align:center; padding:2rem;">
+        <h1>404 – Not Found</h1>
+        <p>Post not found.</p>
+        <a href="/">Back to Home</a>
+      </main>
+    `);
+  }
+
+  // remove the post from the array
+  posts.splice(index, 1);
+
+  // redirect to home with success message
+  res.redirect('/?msg=Post+deleted+successfully');
 });
+
 
 // Catch-all 404 handler
 app.use((req, res) => {

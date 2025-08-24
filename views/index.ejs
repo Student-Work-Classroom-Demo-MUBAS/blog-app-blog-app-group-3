@@ -7,63 +7,78 @@
 
 
 <main class="container">
-  <!-- Header section with page title and optional "Create Post" button -->
+
+  <!-- Success message after deletion -->
+  <% if (msg) { %>
+    <div class="alert alert-success">
+      <%= msg %>
+    </div>
+  <% } %>
+  
+  <!-- Page header -->
   <div class="header-bar">
     <h1>All Posts</h1>
   </div>
 
-  <!-- Conditional: If there are no posts, show an empty state message -->
+  <!-- Show message if no posts exist -->
   <% if (posts.length === 0) { %>
     <p class="empty-state">No posts yet. Be the first to share your thoughts!</p>
 
   <% } else { %>
-    <!-- If posts exist, display the most recent one as a featured post -->
-
-    <% const featured = posts[posts.length - 1]; %> <!-- Select the last post as the featured one -->
+    <!-- Select the last post as featured -->
+    <% const featured = posts[posts.length - 1]; %>
     <section class="featured-post">
-      <h2>Featured Post</h2>
+      <h1>Featured Post</h1>
       <article class="post-item">
-        <!-- Post title with link to full post -->
-        <h3><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h3>
-
-        <!-- Display formatted post date -->
+        <!-- Title and date -->
+        <h2><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h2>
         <small class="post-meta">Posted on <%= new Date(featured.createdAt).toLocaleDateString() %></small>
 
-        <!-- Show a preview of the post content (first 200 characters) -->
+        <!-- Content preview -->
         <p>
           <%= featured.content.length > 200
             ? featured.content.substring(0, 200) + '…'
             : featured.content %>
         </p>
 
-        <!-- Button to read the full post -->
-        <a href="/posts/<%= featured.id %>" class="btn btn-primary">Read More</a>
+        <!-- Action buttons: Read More, Edit, Delete -->
+        <div class="actions">
+          <a href="/posts/<%= featured.id %>" class="btn btn-primary">Read More</a>
+          <a href="/posts/<%= featured.id %>/edit" class="btn btn-primary">Edit</a>
+          <form action="/posts/<%= featured.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
       </article>
     </section>
 
-    <!-- Display all other posts in a responsive grid layout -->
+    <!-- Display remaining posts in reverse order -->
     <section class="post-grid">
-      <% posts.slice(0, -1).reverse().forEach(post => { %> <!-- Exclude featured post and reverse order -->
+       <h1> Recent Posts</h1>
+      <% posts.slice(0, -1).reverse().forEach(post => { %>
         <article class="post-item">
-          <!-- Post title with link -->
+          <!-- Title and date -->
           <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
-
-          <!-- Post date -->
           <small class="post-meta">Posted on <%= new Date(post.createdAt).toLocaleDateString() %></small>
 
-          <!-- Content preview (first 150 characters) -->
+          <!-- Content preview -->
           <p>
             <%= post.content.length > 150
               ? post.content.substring(0, 150) + '…'
               : post.content %>
           </p>
 
-          <!-- Button to read full post -->
-          <a href="/posts/<%= post.id %>" class="btn btn-outline">Read More</a>
+          <!-- Action buttons: Read More, Edit, Delete -->
+          <div class="actions">
+            <a href="/posts/<%= post.id %>" class="btn btn-primary">Read More</a>
+            <a href="/posts/<%= post.id %>/edit" class="btn btn-primary">Edit</a>
+            <form action="/posts/<%= post.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
         </article>
       <% }) %>
     </section>
-
   <% } %>
 </main>
 
@@ -71,3 +86,6 @@
 
 <!-- Include the shared footer partial -->
 <%- include('partials/footer') %>
+
+
+
