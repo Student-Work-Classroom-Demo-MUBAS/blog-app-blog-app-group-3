@@ -16,10 +16,10 @@
     <!-- Select the last post as featured -->
     <% const featured = posts[posts.length - 1]; %>
     <section class="featured-post">
-      <h2>Featured Post</h2>
+      <h1>Featured Post</h1>
       <article class="post-item">
         <!-- Title and date -->
-        <h3><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h3>
+        <h2><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h2>
         <small class="post-meta">Posted on <%= new Date(featured.createdAt).toLocaleDateString() %></small>
 
         <!-- Content preview -->
@@ -34,7 +34,7 @@
           <a href="/posts/<%= featured.id %>" class="btn btn-primary">Read More</a>
           <a href="/posts/<%= featured.id %>/edit" class="btn btn-primary">Edit</a>
           <form action="/posts/<%= featured.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
-            <button type="submit" class="btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
           </form>
         </div>
       </article>
@@ -42,6 +42,7 @@
 
     <!-- Display remaining posts in reverse order -->
     <section class="post-grid">
+       <h1> Posts in reverse chronological order</h1>
       <% posts.slice(0, -1).reverse().forEach(post => { %>
         <article class="post-item">
           <!-- Title and date -->

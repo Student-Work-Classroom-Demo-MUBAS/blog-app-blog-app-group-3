@@ -125,62 +125,87 @@ h1, h2, h3 {
   box-shadow: 0 6px 12px rgba(0, 95, 153, 0.2);
 }
 
-/* ================================
-   Post Viewing Layout
-================================= */
-.empty-state {
-  background-color: #f0f8ff;
-  padding: 2rem;
-  border-radius: 6px;
-  text-align: center;
-  color: #555;
-  font-size: 1.1rem;
+/* ============================================
+   Center & Style Featured and Grid Containers
+   – same look for .featured-post and .post-grid
+============================================ */
+.featured-post,
+.post-grid {
+  max-width: 1000px;               
+  margin: 0 auto 2rem;             
+  background-color: #eef6ff;      
+  padding: 1.5rem;                 
+  border-left: 4px solid #007acc;  
+  border-radius: 6px;             
 }
 
-.featured-post {
-  background-color: #eef6ff;
-  padding: 1.5rem;
-  border-left: 4px solid #007acc;
-  margin-bottom: 2rem;
-  border-radius: 6px;
+.featured-post h1{
+  color: #050549;
+  font-size: 30px;
 }
 
-.featured .btn-primary {
-  background-color: #007acc;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+/* ============================================
+   Post Cards: slightly larger & more breathing room
+============================================ */
+.post-item {
+  font-size: 1.05rem;              
+}
+
+/* ============================================
+   Post Headings: dark shade of blue
+============================================ */
+/* ============================================
+   Post Title Links
+============================================ */
+.post-item h2 a,
+.post-item h3 a,
+.featured-post h3 a {
+  text-decoration: none;              
+  transition: text-decoration 0.2s ease;
+  color: #05386b;                  
+  font-size: 1.6rem;                
   text-decoration: none;
 }
 
-.post-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+.post-item h2 a:hover,
+.post-item h3 a:hover,
+.featured-post h3 a:hover {
+  text-decoration: underline; 
 }
 
-.post-item {
-  background-color: #f9f9f9;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-
-.post-item h2, .post-item h3 {
-  color: #007acc;
-  margin-bottom: 0.5rem;
-}
 
 .post-meta {
-  font-size: 0.85rem;
-  color: #777;
-  margin-bottom: 0.75rem;
+  color: #021030;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 
+
+/* ============================================
+   Post Content: distinct blue tone
+============================================ */
 .post-item p {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 1rem;
+  color: #000911;                  
+  font-size: 1.4rem;               
+  margin-bottom: 1rem;             
+}
+
+.post-grid h1{
+  color: #050549;
+  font-size: 30px;
+}
+/* ============================================
+   Empty State: styled container & dark blue text
+============================================ */
+.empty-state {
+  max-width: 800px;                
+  margin: 2rem auto;               
+  background-color: #eef6ff;       
+  padding: 2rem;                   
+  border-radius: 6px;              
+  color: #003366;                  
+  font-size: 1.2rem;               
+  text-align: center;              
 }
 
 /* ================================
@@ -210,16 +235,16 @@ h1, h2, h3 {
 
 /* Blue buttons: Read More + Edit */
 .btn-primary {
-  background-color: #007BFF;
+  background-color: #004a99;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
-  width: 80px;
+  width: 120px;
   height: 30px;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #00152b;
 }
 
 /* Red button: Delete */
