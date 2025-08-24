@@ -157,23 +157,14 @@ h1, h2, h3 {
 }
 
 /* Edit route */
-/* General page layout */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
-/* Page title */
-.page-title {
+.edit-page-title {
   text-align: center;
   margin-top: 40px;
   font-size: 2rem;
   color: #333;
 }
 
-/* Alert messages */
-.alert-error {
+.edit-alert-error {
   background-color: #f44336;
   color: white;
   padding: 12px;
@@ -183,7 +174,7 @@ body {
   text-align: center;
 }
 
-.alert-success {
+.edit-alert-success {
   background-color: #4CAF50;
   color: white;
   padding: 12px;
@@ -193,8 +184,7 @@ body {
   text-align: center;
 }
 
-/* Form layout */
-form {
+.edit-form {
   max-width: 600px;
   margin: 0 auto;
   background-color: white;
@@ -203,19 +193,19 @@ form {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Form groups */
-.form-group {
+.edit-form-group {
   margin-bottom: 20px;
 }
 
-.form-group label {
+.edit-form-group label {
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
   color: #555;
 }
 
-.form-control {
+.edit-input-field,
+.edit-textarea-field {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
@@ -224,14 +214,13 @@ form {
   resize: vertical;
 }
 
-/* Action buttons */
-.form-actions {
+.edit-form-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.btn-update {
+.edit-btn-update {
   background-color: #007bff;
   color: white;
   padding: 10px 20px;
@@ -241,11 +230,11 @@ form {
   font-weight: bold;
 }
 
-.btn-update:hover {
+.edit-btn-update:hover {
   background-color: #0056b3;
 }
 
-.btn-secondary {
+.edit-btn-cancel {
   background-color: #6c757d;
   color: white;
   padding: 10px 20px;
@@ -254,6 +243,6 @@ form {
   font-weight: bold;
 }
 
-.btn-secondary:hover {
+.edit-btn-cancel:hover {
   background-color: #5a6268;
 }
