@@ -1,18 +1,16 @@
-<!-- Include the shared header partial -->
 <%- include('partials/header') %>
 
 <main class="container">
-  <!-- Show error message if post is missing -->
+  <!-- Show error if post is missing -->
   <% if (error) { %>
     <div class="alert alert-danger"><%= error %></div>
   <% } else { %>
-
-    <!-- Optional success or info message -->
+    <!-- Optional message -->
     <% if (msg) { %>
       <div class="alert alert-<%= msg.type %>"><%= msg.text %></div>
     <% } %>
 
-    <!-- Render the full post -->
+    <!-- Full post content -->
     <article class="post-item">
       <h1><%= post.title %></h1>
       <p class="post-meta">Posted on <%= post.createdAt.toLocaleString() %></p>
@@ -21,22 +19,14 @@
       </div>
     </article>
 
-    <!-- Action buttons -->
+    <!-- Action buttons: Edit and Delete -->
     <div class="actions">
-      <a href="/" class="btn-link">Back to Home</a>
-      <a href="/posts/<%= post.id %>/edit" class="btn btn-secondary">Edit</a>
-      <form
-        action="/posts/<%= post.id %>/delete"
-        method="POST"
-        onsubmit="return confirm('Delete this post?');"
-        style="display: inline"
-      >
+      <a href="/posts/<%= post.id %>/edit" class="btn btn-primary">Edit</a>
+      <form action="/posts/<%= post.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
         <button type="submit" class="btn btn-danger">Delete</button>
       </form>
     </div>
-
   <% } %>
 </main>
 
-<!-- Include the shared footer partial -->
 <%- include('partials/footer') %>
