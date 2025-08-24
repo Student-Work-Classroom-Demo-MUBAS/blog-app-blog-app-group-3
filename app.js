@@ -73,13 +73,19 @@ app.get('/posts/:id', (req, res) => {
   res.render('post', { post, msg: getMessage(req), error: null, successMessage: null });
 });
 
-// Route to render edit form
+// ===============================
+// Edit Routes for Blog Web App
+// ===============================
+
+// Render the edit form for a specific post
 app.get('/posts/:id/edit', (req, res) => {
   const id = parseInt(req.params.id);
   const post = posts.find(p => p.id === id);
+
   if (!post) {
     return res.status(404).render('error', { message: 'Post not found' });
   }
+
   res.render('edit', {
     post,
     successMessage: req.query.success || null,
@@ -87,14 +93,16 @@ app.get('/posts/:id/edit', (req, res) => {
   });
 });
 
-// Route to handle post update and redirect to homepage with success message
+// Handle post update and redirect to homepage with success message
 app.post('/posts/:id/edit', (req, res) => {
   const post = posts.find(p => p.id === +req.params.id);
+
   if (!post) {
     return res.status(404).render('error', { message: 'Post not found' });
   }
 
   const { title, content } = req.body;
+
   if (!title.trim() || !content.trim()) {
     return res.render('edit', {
       post,

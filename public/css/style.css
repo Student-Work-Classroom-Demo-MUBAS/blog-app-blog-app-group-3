@@ -550,113 +550,179 @@ textarea {
 }
 
 /* POST-EDITING PART */
-/* ================================
-   Edit Post Page Scoped Styles (.edit-)
-================================= */
+/*Page Title Styling*/
 
+/* Centers the page title and applies brand color for visual hierarchy */
 .edit-page-title {
   text-align: center;
   font-size: 2rem;
-  color: #005f99;
+  color: #005f99; /* blue tone */
   margin: 2rem 0 1rem;
   font-weight: bold;
 }
 
-.edit-alert-error {
-  background-color: #f44336;
-  color: white;
-  padding: 12px;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
+/* Wrapper Layout and Background*/
+
+/* Flex container for vertical stacking and centered alignment */
+.edit-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom right, #e0f7ff, #cce0ff); /* Soft gradient for user-friendly visual appeal */
 }
 
+/* Image Preview Section */
 
+/* Container for image preview and upload button */
+.edit-image-preview {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles the preview image with rounded corners and subtle shadow */
+.edit-image-preview img {
+  width: 50%;
+  height: auto;
+  border-radius: 12px; /* Matches input styling for consistency */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds depth */
+  margin-bottom: 1rem; /* Space between image and upload button */
+}
+
+/* Image Upload Button*/
+
+/* Styled button for image selection with accessible contrast */
+.edit-image-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #e7ebee;
+  color: rgba(0, 0, 0, 0.849);
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  width: 50%;
+}
+
+/* Hover effect for interactive feedback */
+.edit-image-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ===============================
+   Form Container
+   =============================== */
+
+/* Centralized form with padding and rounded corners */
 .edit-form {
   max-width: 600px;
   margin: 0 auto;
   background-color: white;
   padding: 2rem;
-  border-radius: 8px;
-  border: 2px solid #007acc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px; /* Slightly smaller radius for form box */
 }
 
+/* ===============================
+   Form Group and Labels
+   =============================== */
+
+/* Spacing between form fields */
 .edit-form-group {
   margin-bottom: 1.5rem;
 }
 
+/* Bold labels for accessibility and clarity */
 .edit-form-group label {
   display: block;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #555;
+  color: rgba(0, 0, 0, 0.849);
+  font-size: 1rem;
 }
 
+/* ===============================
+   Input and Textarea Fields
+   =============================== */
+
+/* Ensures scoped styling overrides any global input styles */
+.edit-input-field {
+  border-radius: 12px !important; /* Enforced radius for consistent UI */
+}
+
+/* Shared styling for input and textarea fields */
 .edit-input-field,
 .edit-textarea-field {
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-  background-color: #f9f9f9;
+  border-radius: 12px;
+  background-color: #f9f9f9; /* Light background for readability */
 }
 
+/* Allows vertical resizing of textarea for longer input */
+.edit-textarea-field {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/*Form Action Buttons - Flex layout for button spacing */
 .edit-form-actions {
   display: flex;
-  justify-content: space-between;
+  gap: 1rem; /* Controls spacing between buttons */
   margin-top: 1.5rem;
 }
 
+/* Update button with primary color and hover transition */
 .edit-btn-update {
   background-color: #007bff;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: bold;
-  cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
+/* Hover state for update button */
 .edit-btn-update:hover {
   background-color: #0056b3;
 }
 
+/* Cancel button styled as link with button-like appearance */
 .edit-btn-cancel {
-  background-color: #6c757d;
-  color: white;
+  display: inline-block; /* Makes <a> behave like a button */
+  background-color: #e7ebee;
+  color: rgba(0, 0, 0, 0.849);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  width: 100%;
 }
 
+/* Hover state for cancel button */
 .edit-btn-cancel:hover {
-  background-color: #5a6268;
+  background-color: #0056b3;
 }
 
-/* ================================
-   Popup Success Message (index.ejs)
-================================= */
+/* Success Message Styling */
+
+/* Popup message for successful update (used in index.ejs) */
 .popup-success {
-  background-color: #d4edda;
-  color: #155724;
+  color: #155724; /* Success green */
   padding: 1rem 1.5rem;
   margin: 2rem auto;
-  width: fit-content;
-  max-width: 90%;
-  border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  border: 1px solid #c3e6cb;
-  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+  border: none;
   position: relative;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out; /* Smooth appearance animation */
 }
