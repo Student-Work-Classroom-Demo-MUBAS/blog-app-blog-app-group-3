@@ -1,14 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= post.title %></title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-  <h1><%= post.title %></h1>
-  <p><%= post.content %></p>
-  <small>Posted on <%= post.createdAt.toLocaleString() %></small>
-  <br><br>
-  <a href="/posts/new">Create another post</a>
-</body>
-</html>
+<!-- Include the shared header partial -->
+<%- include('partials/header') %>
+
+<main class="container">
+  <!-- Show error message if post is missing -->
+  <% if (error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } else { %>
+
+    <!-- Optional success or info message -->
+    <% if (msg) { %>
+      <div class="alert alert-<%= msg.type %>"><%= msg.text %></div>
+    <% } %>
+
+    <!-- Render the full post -->
+    <article class="post-item">
+      <h1><%= post.title %></h1>
+      <p class="post-meta">Posted on <%= post.createdAt.toLocaleString() %></p>
+      <div class="post-content">
+        <%= post.content.replace(/\n/g, '<br>') %>
+      </div>
+    </article>
+
+    <!-- Action buttons -->
+    <div class="actions">
+      <a href="/" class="btn-link">Back to Home</a>
+      <a href="/posts/<%= post.id %>/edit" class="btn btn-secondary">Edit</a>
+      <form
+        action="/posts/<%= post.id %>/delete"
+        method="POST"
+        onsubmit="return confirm('Delete this post?');"
+        style="display: inline"
+      >
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+
+  <% } %>
+</main>
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>
