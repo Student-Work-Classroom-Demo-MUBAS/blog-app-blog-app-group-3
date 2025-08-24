@@ -21,12 +21,6 @@ A full-stack, in-memory blog app built with Node.js, Express.js, and EJS. Create
 
 ---
 
-## Demo
-
-![Homepage Screenshot](./public/images/demo-home.png)  
-![Single Post Screenshot](./public/images/demo-post.png)  
-
-Access the live demo (if deployed): **https://yourapp.example.com**
 
 ---
 
