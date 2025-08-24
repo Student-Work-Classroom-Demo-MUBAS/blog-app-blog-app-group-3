@@ -1,15 +1,50 @@
-<link rel="stylesheet" href="css/style.css">
-  <footer class="footer">
-    <div class="footer-container">
-      <p>&copy; <%= new Date().getFullYear() %> <strong>My Blog</strong>. All rights reserved.</p>
-      <nav class="social-links" aria-label="Social media">
-        <ul>
-          <li><a href="#" title="Follow us on Twitter">Twitter</a></li>
-          <li><a href="#" title="Follow us on Facebook">Facebook</a></li>
-          <li><a href="#" title="Follow us on Instagram">Instagram</a></li>
-        </ul>
-      </nav>
+<!-- Link to external stylesheet -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Footer section -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Branding and tagline -->
+    <div class="footer-branding">
+      <h2>Group Three Blog</h2>
+      <p class="tagline">Sharing ideas, stories, and inspiration one post at a time.</p>
     </div>
-  </footer>
-</body>
-</html>
+
+    <!-- Social media links with icons -->
+    <nav class="social-links" aria-label="Social media">
+      <ul>
+        <li>
+          <a href="https://twitter.com" target="_blank" title="Visit Twitter">
+            <img src="/images/twitter-icon.png" alt="Twitter icon" class="social-icon">
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com" target="_blank" title="Visit Facebook">
+            <img src="/images/facebook-icon.png" alt="Facebook icon" class="social-icon">
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com" target="_blank" title="Visit Instagram">
+            <img src="/images/instagram-icon.png" alt="Instagram icon" class="social-icon">
+            Instagram
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Optional newsletter signup -->
+    <div class="newsletter">
+      <p>Stay updated with our latest posts:</p>
+      <form>
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Copyright -->
+    <p class="copyright">&copy; <%= new Date().getFullYear() %> Group Three Blog. All rights reserved.</p>
+  </div>
+</footer>
