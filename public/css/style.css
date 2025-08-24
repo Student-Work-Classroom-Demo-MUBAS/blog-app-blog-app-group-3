@@ -158,6 +158,137 @@ h1, h2, h3 {
 
 
 /* ================================
+   Hero Header Styling
+================================= */
+.hero-header {
+  position: relative;
+  background: linear-gradient(to right, #ffffff, #e6f2ff);
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.6), rgba(230,242,255,0.9));
+  z-index: 1;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+/* Left Side */
+.hero-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-left h1 {
+  font-size: 3rem;
+  color: #005f99;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #005f99;
+}
+
+/* Call to Action Button */
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #005f99;
+}
+
+/* Right Side */
+.hero-right {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 95, 153, 0.2);
+}
+
+/* ================================
+   Responsive Design
+================================= */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-left h1 {
+    font-size: 2.4rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    margin-top: 1rem;
+  }
+}
+
+
+
+
+/* ================================
    Footer Styling
 ================================= */
 .footer {
