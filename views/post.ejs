@@ -34,11 +34,22 @@
     <!-- Action buttons: Edit and Delete -->
     <div class="actions">
       <a href="/posts/<%= post.id %>/edit" class="btn btn-primary">Edit</a>
-      <form action="/posts/<%= post.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
-        <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
+      <button type="button" class="btn btn-danger" onclick="openDeleteModal('<%= post.id %>')">Delete</button>
     </div>
+
   <% } %>
 </main>
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete this post?</p>
+    <form id="delete-form" method="POST">
+      <button type="submit" class="btn btn-danger">Yes, Delete</button>
+      <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Cancel</button>
+    </form>
+  </div>
+</div>
 
 <%- include('partials/footer') %>

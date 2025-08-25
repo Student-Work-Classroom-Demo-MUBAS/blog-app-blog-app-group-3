@@ -56,11 +56,10 @@
         <div class="actions">
           <a href="/posts/<%= featured.id %>" class="btn btn-primary">Read More</a>
           <a href="/posts/<%= featured.id %>/edit" class="btn btn-primary">Edit</a>
-          <form action="/posts/<%= featured.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
+          <button type="button" class="btn btn-danger" onclick="openDeleteModal('<%= featured.id %>')">Delete</button>
         </div>
       </article>
+
     </section>
 
     <!-- Display remaining posts (excluding featured) -->
@@ -92,15 +91,27 @@
           <div class="actions">
             <a href="/posts/<%= post.id %>" class="btn btn-primary">Read More</a>
             <a href="/posts/<%= post.id %>/edit" class="btn btn-primary">Edit</a>
-            <form action="/posts/<%= post.id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');" style="display:inline;">
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+            <button type="button" class="btn btn-danger" onclick="openDeleteModal('<%= post.id %>')">Delete</button>
           </div>
+
         </article>
       <% }) %>
     </section>
   <% } %>
 </main>
+
+<!-- Delete confirmation modal -->
+<div id="delete-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete this post?</p>
+    <form id="delete-form" method="POST">
+      <button type="submit" class="btn btn-danger">Yes, Delete</button>
+      <button type="button" class="btn btn-primary" onclick="closeDeleteModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
 
 <!-- Script for UI behaviors -->
 <script src="/js/script.js"></script>

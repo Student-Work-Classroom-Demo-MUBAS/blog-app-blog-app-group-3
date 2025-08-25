@@ -44,4 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  
+  function openDeleteModal(postId) {
+  const modal = document.getElementById('delete-modal');
+  const form = document.getElementById('delete-form');
+  form.action = `/posts/${postId}/delete`;
+  modal.classList.remove('hidden');
+  }
+
+function closeDeleteModal() {
+  document.getElementById('delete-modal').classList.add('hidden');
+  }
