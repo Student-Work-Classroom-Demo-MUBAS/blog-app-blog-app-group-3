@@ -16,11 +16,20 @@
     <!-- Full post content -->
     <article class="post-item">
       <h1><%= post.title %></h1>
-      <p class="post-meta">Posted on <%= post.createdAt.toLocaleString() %></p>
+      <p class="post-meta">
+        Posted on <%= new Date(post.createdAt).toLocaleString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }) %> </p>
+
       <div class="post-content">
-        <%= post.content.replace(/\n/g, '<br>') %>
+        <%- post.content.replace(/\n/g, '<br>') %>
       </div>
-    </article>
+  </article>
+
 
     <!-- Action buttons: Edit and Delete -->
     <div class="actions">

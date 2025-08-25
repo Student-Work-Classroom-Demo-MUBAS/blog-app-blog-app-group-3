@@ -1,10 +1,11 @@
 <!-- Victoria-Post-Viewing -->
 <!-- Include the shared header partial (navigation, styles, etc.) -->
 <%- include('partials/header') %>
+
+<!-- Flash message for successful actions -->
 <% if (successMessage) { %>
   <div id="popup-message" class="popup-success"><%= successMessage %></div>
 <% } %>
-
 
 <main class="container">
 
@@ -25,17 +26,27 @@
     <p class="empty-state">No posts yet. Be the first to share your thoughts!</p>
 
   <% } else { %>
-    <!-- Select the last post as featured -->
-    <% const featured = posts[posts.length - 1]; %>
+    <!-- Select the first post as featured (newest first) -->
+    <% const featured = posts[0]; %>
     <section class="featured-post">
       <h1>Featured Post</h1>
       <article class="post-item">
         <!-- Title and date -->
         <h2><a href="/posts/<%= featured.id %>"><%= featured.title %></a></h2>
-        <small class="post-meta">Posted on <%= new Date(featured.createdAt).toLocaleDateString() %></small>
+        <small class="post-meta">
+          Posted on <%= new Date(featured.createdAt).toLocaleString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          }) %>
+        </small>
+
+
 
         <!-- Content preview -->
-        <p>
+        <p class="post-content1">
           <%= featured.content.length > 200
             ? featured.content.substring(0, 200) + '…'
             : featured.content %>
@@ -52,17 +63,26 @@
       </article>
     </section>
 
-    <!-- Display remaining posts in reverse order -->
+    <!-- Display remaining posts (excluding featured) -->
     <section class="post-grid">
-       <h1> Recent Posts</h1>
-      <% posts.slice(0, -1).reverse().forEach(post => { %>
+      <h1>Recent Posts</h1>
+      <% posts.slice(1).forEach(post => { %>
         <article class="post-item">
           <!-- Title and date -->
           <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
-          <small class="post-meta">Posted on <%= new Date(post.createdAt).toLocaleDateString() %></small>
+          <small class="post-meta">
+            Posted on <%= new Date(post.createdAt).toLocaleString('en-GB', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            }) %>
+          </small>
+
 
           <!-- Content preview -->
-          <p>
+          <p class="post-content1">
             <%= post.content.length > 150
               ? post.content.substring(0, 150) + '…'
               : post.content %>
@@ -82,10 +102,8 @@
   <% } %>
 </main>
 
+<!-- Script for UI behaviors -->
 <script src="/js/script.js"></script>
 
 <!-- Include the shared footer partial -->
 <%- include('partials/footer') %>
-
-
-
