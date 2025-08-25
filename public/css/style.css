@@ -2,7 +2,7 @@
    Base Layout and Typography
 ================================= */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family:"playfair", serif, sans-serif;
   background-color: #ffffff;
   color: #333;
   margin: 0;
@@ -209,11 +209,20 @@ body {
 }
 
 /* ============================================
-   Post Cards: slightly larger & more breathing room
+   Post Cards
 ============================================ */
 .post-item {
-  font-size: 1.05rem;              
+  font-size: 1.05rem; 
+  margin-bottom: 50px; 
+  padding-bottom: 30px; 
+  border-bottom: 2px solid #092153;         
 }
+
+.post-item:hover {
+  transform: translateY(-6px);
+  transition: transform 0.4s ease;
+}
+
 
 /* ============================================
    Post Headings: 
@@ -246,6 +255,7 @@ body {
 /* ============================================
    Post Title Links
 ============================================ */
+.post-item h1,
 .post-item h2 a,
 .post-item h3 a,
 .featured-post h3 a {
@@ -264,20 +274,32 @@ body {
 
 
 .post-meta {
-  color: #021030;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+  color: #102e74;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
 }
 
+
+.post-content{
+  max-width: 1000px;               
+  margin: 0 auto 2rem;             
+  background-color: #eef6ff;      
+  padding: 1.5rem;                 
+  border-left: 4px solid #007acc;  
+  border-radius: 6px; 
+  font-size: 1.3rem;
+  color: #00152b;
+}
+
+.post-content1{
+  font-size: 1.5rem;
+  color: #00152b;
+}
 
 /* ============================================
    Post Content: distinct blue tone
 ============================================ */
-.post-item p {
-  color: #000911;                  
-  font-size: 1.4rem;               
-  margin-bottom: 1rem;             
-}
 
 .post-grid h1{
   color: #050549;
@@ -317,16 +339,17 @@ body {
   text-decoration: none;
   cursor: pointer;
   text-align: center;
+  font-family: "Inter", sans-serif;
 }
 
 /* Blue buttons: Read More + Edit */
 .btn-primary {
-  background-color: #004a99;
+  background-color: #0550a1;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
   width: 150px;
-  height: 54px;
+  height: 48px;
 }
 
 .btn-primary:hover {
@@ -339,12 +362,12 @@ body {
   width: 100px;
   color: white;
   text-align: center;
-  background-color: #db3309;
+  background-color: #ad2908;
   border: none;
 }
 
 .btn-danger:hover {
-  background-color: #a00000;
+  background-color: #6b0101;
 }
 
 /* ================================
@@ -366,6 +389,12 @@ body {
   color: #2d862d;
 }
 
+@media (max-width: 680px) {
+  .post-item {
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+}
 
 
 
@@ -374,6 +403,8 @@ body {
 ================================= */
 .form-group {
   margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: #031e38;
 }
 
 label {
@@ -389,18 +420,6 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-}
-
-/* ================================
-   Form Container Layout
-================================= */
-.form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ================================
@@ -423,7 +442,7 @@ textarea {
   margin: 2rem auto;
   padding: 2rem;
   background-color: #ffffff;
-  border: 2px solid #007acc;
+  border: 2px solid #082574;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -433,7 +452,7 @@ textarea {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
-  color: #005f99;
+  color: #033577;
   margin-bottom: 1.5rem;
 }
 
@@ -522,7 +541,6 @@ textarea {
 }
 
 /* Image Preview Section */
-
 /* Container for image preview and upload button */
 .edit-image-preview {
   text-align: center;
@@ -645,14 +663,17 @@ textarea {
 /* ============================================
    Footer Base Styles
    ============================================ */
+/* ============================================
+   Footer Base Styles
+   ============================================ */
 .footer {
   background: linear-gradient(130deg, #e3f2fd 10%, #ffffff 90%);
-  height: 500px;
+  font-family: 'Playfair Display', serif; 
+  height: auto;
   color: #010d1f;
   padding: 60px 20px;
   position: relative;
-  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
-  font-family: 'Segoe UI', sans-serif;
+  margin-top: 40px;
 }
 
 /* Container Grid */
@@ -781,24 +802,108 @@ textarea {
    Responsive Breakpoints
    ============================================ */
 
-/* Small Screens */
+/* Medium Screens (tablets & small laptops) */
+@media (max-width: 980px) {
+  .footer {
+    padding: 50px 20px;
+    height: auto; /* Allow content to define height */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .footer-branding h2 {
+    font-size: 2.4rem;
+  }
+
+  .footer-branding .tagline {
+    font-size: 1.3rem;
+  }
+
+  .newsletter-title {
+    font-size: 1.8rem;
+  }
+
+  .newsletter-text {
+    font-size: 1.3rem;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    font-size: 0.95rem;
+  }
+
+  .social-links a {
+    font-size: 1.4rem;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 38px;
+  }
+
+  .copyright {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small Screens (phones) */
 @media (max-width: 680px) {
   .footer-container {
     grid-template-columns: 1fr;
+    gap: 30px;
     text-align: center;
+  }
+
+  .footer-branding,
+  .newsletter,
+  .social-links {
+    margin-bottom: 25px;
+  }
+
+  .footer-branding h2 {
+    font-size: 2rem;
+  }
+
+  .footer-branding .tagline {
+    font-size: 1.1rem;
+  }
+
+  .newsletter-title {
+    font-size: 1.6rem;
+  }
+
+  .newsletter-text {
+    font-size: 1.2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+    font-size: 1rem;
   }
 
   .social-links ul {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
   }
 
-  .footer-branding,
-  .newsletter {
-    margin-bottom: 20px;
+  .social-icon {
+    width: 40px;
+    height: 32px;
+  }
+
+  .copyright {
+    font-size: 1rem;
+    margin-top: 30px;
   }
 }
+
 
 .edit-btn-cancel {
   display: inline-block; /* Makes <a> behave like a button */
