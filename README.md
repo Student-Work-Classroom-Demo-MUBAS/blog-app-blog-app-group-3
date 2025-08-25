@@ -1,8 +1,6 @@
-# Blog Web Application
+# Group Three Blog Web Application
 
-A full-stack, in-memory blog app built with Node.js, Express.js, and EJS. Create, view, edit, and delete posts—all without a database—and enjoy a fully responsive, professional UI.
-
----
+An in-memory blog app powered by Node.js, Express, and EJS—no database setup required. Jump straight into writing, editing, and deleting posts with instant flash messages and handy confirmation prompts. Reusable EJS partials and clean routing keep the codebase organized, while responsive CSS and fluid typography ensure your content looks sharp on all screen sizes. Smooth, custom 404/500 pages round out the polished experience.
 
 ## Table of Contents
 
@@ -15,18 +13,7 @@ A full-stack, in-memory blog app built with Node.js, Express.js, and EJS. Create
 - [Environment Variables](#environment-variables)  
 - [Scripts](#scripts)  
 - [Contributing](#contributing)  
-- [License](#license)  
-- [Contact](#contact)  
-- [Acknowledgements](#acknowledgements)  
-
----
-
-## Demo
-
-![Homepage Screenshot](./public/images/demo-home.png)  
-![Single Post Screenshot](./public/images/demo-post.png)  
-
-Access the live demo (if deployed): **https://yourapp.example.com**
+- [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -43,18 +30,15 @@ Access the live demo (if deployed): **https://yourapp.example.com**
 ---
 
 ## Prerequisites
-
 - Node.js ≥ 14.x  
 - npm (bundled with Node)  
 - Git  
 
----
+
 
 ## Installation
-
-```bash
 # 1. Clone this repo
-git clone https://github.com/your-org/blog-app.git
+git clone https://github.com/Student-Work-Classroom-Demo-MUBAS/blog-app-blog-app-group-3
 
 # 2. Navigate into the folder
 cd blog-app
@@ -62,10 +46,8 @@ cd blog-app
 # 3. Install dependencies
 npm install
 
-Usage
-bash
-# Start in development mode (with nodemon if installed)
-npm run dev
+# 4. Start the application
+npm start
 
 # Or simply
 node app.js
@@ -73,8 +55,9 @@ Then open your browser to:
 
 Code
 http://localhost:3000
-Project Structure
-Code
+
+
+**Project Structure**
 blog-app/
 ├── app.js               # Express server & routes
 ├── package.json         # Project config & dependencies
@@ -92,19 +75,18 @@ blog-app/
     ├── create.ejs       # New post form
     ├── edit.ejs         # Edit post form
     └── post.ejs         # Single post view
-Environment Variables
+
+**Environment Variables**
 This app uses the following optional variables (with defaults shown):
 
 env
 PORT=3000
-To override, create a .env file and add:
 
-ini
-PORT=8080
 Scripts
 Script	    Description
 node app.js   Start server with nodemon (if installed)
 npm start   Start server with node app.js
+
 Contributing
 Fork the repository
 
@@ -124,7 +106,7 @@ Open a Pull Request and request a review
 
 Please adhere to the existing code style, write clear commit messages, and include screenshots or GIFs for any UI changes.
 
-**Acknowledgements**
+## Acknowledgements
 EJS Documentation
 Express.js Guide
 Node.js
