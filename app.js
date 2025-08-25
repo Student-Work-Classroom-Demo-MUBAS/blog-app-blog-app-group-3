@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const session = require('express-session');
 
+
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,31 +24,45 @@ app.use(session({
 let posts = [];
 let nextId = 1;
 
+
 // Homepage Route — shows all posts and success message
 app.get('/', (req, res) => {
-  const sorted = [...posts].sort((a, b) => b.id - a.id);
+  const sortedPosts = [...posts].sort((a, b) => b.id - a.id); // newest first
   const msg = getMessage(req);
   const successMessage = req.session.successMessage || null;
+
+  // Clear the success message after displaying it
   req.session.successMessage = null;
-  res.render('index', { posts: sorted, msg, successMessage });
+
+  res.render('index', {
+    posts: sortedPosts,
+    msg,
+    successMessage
+  });
 });
+
 
 // Helper Function
 function getMessage(req) {
   return req.query.msg || null;
 }
 
-// Homepage Route — shows all posts
-app.get('/', (req, res) => {
-  const sorted = [...posts].sort((a, b) => b.id - a.id);
-  res.render('index', { posts: sorted, msg: getMessage(req) });
+// Route to list all posts (same as home but)
+app.get('/posts', (req, res) => {
+  const sortedPosts = [...posts].sort((a, b) => b.id - a.id); // newest first
+  const msg = getMessage(req);
+  const successMessage = req.session.successMessage || null;
+
+  // Clear the success message after displaying it
+  req.session.successMessage = null;
+
+  res.render('index', {
+    posts: sortedPosts,
+    msg,
+    successMessage
+  });
 });
 
-// Route to list all posts (same as home )
-app.get('/posts', (req, res) => {
-  const sorted = [...posts].sort((a, b) => b.id - a.id);
-  res.render('index', { posts: sorted, msg: getMessage(req) });
-});
 
 // Route to render post creation form
 app.get('/posts/new', (req, res) => {
