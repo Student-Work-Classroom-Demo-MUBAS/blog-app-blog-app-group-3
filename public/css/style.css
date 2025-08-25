@@ -937,3 +937,39 @@ textarea {
   position: relative;
   animation: fadeIn 0.5s ease-in-out; /* Smooth appearance animation */
 }
+
+/* Styles of Script.js Classes*/
+/* scroll-fade animation: */
+.post-item.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.post-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* back-to-top styling: */
+#back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* preview expand/collapse */
+.post-content1 {
+  max-height: 5rem;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.post-content1.expanded {
+  max-height: 100vh;
+}
