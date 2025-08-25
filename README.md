@@ -13,7 +13,12 @@ An in-memory blog app powered by Node.js, Express, and EJS—no database setup r
 - [Environment Variables](#environment-variables)  
 - [Scripts](#scripts)  
 - [Contributing](#contributing)  
-- [Acknowledgements](#acknowledgements)
+- [License](#license)  
+- [Contact](#contact)  
+- [Acknowledgements](#acknowledgements)  
+
+---
+
 
 ---
 
@@ -76,7 +81,7 @@ blog-app/
     ├── edit.ejs         # Edit post form
     └── post.ejs         # Single post view
 
-**Environment Variables**
+##Environment Variables
 This app uses the following optional variables (with defaults shown):
 
 env
